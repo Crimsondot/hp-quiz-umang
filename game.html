@@ -15,12 +15,17 @@
     <title>Harry Potter Quiz</title>
   </head>
   <body>
+    <!-- BGM Audio -->
+    <audio id="bgm" loop>
+      <source src="./assets/hedwigs-theme.m4a" type="audio/mp4" />
+    </audio>
     <div class="wrapper">
       <header>
         <!-- Nav Bar -->
         <div class="topnav" id="myTopnav">
           <a href="index.html" aria-label="home-button">Home</a>
           <a id="instruct" aria-label="instructions-button">Instructions </a>
+          <a id="bgm-toggle" aria-label="toggle-music-button" class="bgm-btn">Music: ON</a>
         </div>
         <!-- Score Board -->
         <div id="score-container">
@@ -86,15 +91,19 @@
               <li>You will have 4 multiple choice answers</li>
               <li>Click The Answer You Think is correct</li>
               <li>
-                Once Completed All 5 Questions, You Will Be Sorted Into Your
-                House
+                Once Completed All 5 Questions, You Will Discover Which Character
+                You Are
               </li>
-              <li>You Don’t Want To be in Slytherin House</li>
+              <li>Aim for a perfect score</li>
             </ul>
           </div>
         </div>
       </section>
     </div>
+    <!-- Made by Umang -->
+    <footer class="credit-footer">
+      <p>Made by Umang</p>
+    </footer>
     <!-- Script Sheet -->
     <script src="assets/js/game.js"></script>
   </body>

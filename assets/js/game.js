@@ -4,6 +4,46 @@ document.addEventListener("DOMContentLoaded", function () {
   start();
 });
 
+// BGM Controls //
+
+let bgm = document.getElementById("bgm");
+let bgmToggle = document.getElementById("bgm-toggle");
+
+// Resume BGM from stored state
+let bgmState = sessionStorage.getItem("bgm-state");
+if (bgmState !== "off") {
+  bgm.volume = 0.3;
+  bgm.play().catch(function () {
+    // Autoplay blocked, will start on first click
+    document.addEventListener("click", function startOnClick() {
+      let state = sessionStorage.getItem("bgm-state");
+      if (state !== "off") {
+        bgm.volume = 0.3;
+        bgm.play();
+      }
+      document.removeEventListener("click", startOnClick);
+    });
+  });
+  if (bgmToggle) bgmToggle.innerText = "Music: ON";
+} else {
+  if (bgmToggle) bgmToggle.innerText = "Music: OFF";
+}
+
+if (bgmToggle) {
+  bgmToggle.onclick = function () {
+    if (bgm.paused) {
+      bgm.volume = 0.3;
+      bgm.play();
+      bgmToggle.innerText = "Music: ON";
+      sessionStorage.setItem("bgm-state", "on");
+    } else {
+      bgm.pause();
+      bgmToggle.innerText = "Music: OFF";
+      sessionStorage.setItem("bgm-state", "off");
+    }
+  };
+}
+
 // Instruction Box //
 
 let modal = document.getElementById("myModal");
@@ -102,7 +142,7 @@ let quizquestions = [
     correct: 3,
   },
   {
-    question: "What was Harry’s Patronus?",
+    question: "What was Harry's Patronus?",
     choice1: "Cat",
     choice2: "Stag",
     choice3: "Fox",
@@ -137,10 +177,10 @@ function start() {
 
 function displayQuestions() {
   if (questionCounter == 5) {
-    return window.location.assign("gameover.html");
+    return window.location.assign("index.html");
   }
   questionCounter++;
-  counterText.innerText = `${questionCounter}/5`;
+  counterText.innerText = questionCounter + "/5";
   let index = Math.floor(Math.random() * avaliableQuestions.length);
   currentQuestion = avaliableQuestions[index];
   questionSelect.innerText = currentQuestion.question;

@@ -338,30 +338,78 @@ h2 {
   font-size: 150%;
 }
 
-.house-badge {
-  margin-bottom: 50px;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
+/* Character Portrait Styles */
+
+#character-reveal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
 }
 
-.hide2 {
+.character-portrait {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 4px solid goldenrod;
+  box-shadow: 0 0 30px rgba(218, 165, 32, 0.6), 0 0 60px rgba(218, 165, 32, 0.3);
+  object-fit: cover;
+  animation: portraitReveal 1.2s ease-out forwards;
+}
+
+@keyframes portraitReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.character-name-label {
+  color: goldenrod;
+  text-transform: uppercase;
+  font-size: 180%;
+  margin-top: 15px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
+}
+
+.hidden {
   display: none;
 }
-.hide3 {
-  display: none;
-}
-.hide4 {
-  display: none;
-}
-.hide5 {
-  display: none;
+
+/* BGM Toggle Button */
+
+.bgm-btn {
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 #play-again:hover {
   border: goldenrod solid;
   color: goldenrod;
   background-color: black;
+}
+
+/* Credit Footer */
+
+.credit-footer {
+  text-align: center;
+  padding: 12px 0;
+  color: goldenrod;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
 }
 
 /* Responsive Styles */
@@ -404,9 +452,13 @@ h2 {
     font-size: 100%;
   }
 
-  .house-badge {
+  .character-portrait {
     width: 200px;
     height: 200px;
+  }
+
+  .character-name-label {
+    font-size: 130%;
   }
 
   .modal-content {

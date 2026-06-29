@@ -15,70 +15,90 @@
     <title>Harry Potter Quiz</title>
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <!-- Splash Page -->
-        <div class="splash">
-          <p class="fade-in">
-            Dear Player, <br />
-            We are pleased to inform you that you have been accepted at Hogwarts
-            School of Witchcraft and Wizardry.
-          </p>
+    <!-- BGM Audio -->
+    <audio id="bgm" loop>
+      <source src="./assets/hedwigs-theme.m4a" type="audio/mp4" />
+    </audio>
+    <header>
+      <!-- Nav Bar -->
+      <div class="topnav" id="myTopnav">
+        <a href="index.html" aria-label="home-button">Home</a>
+        <a id="instruct" aria-label="instructions-button">Instructions </a>
+        <a id="bgm-toggle" aria-label="toggle-music-button" class="bgm-btn">Music: ON</a>
+      </div>
+    </header>
+    <!-- Results & Character Display -->
+    <section>
+      <div id="center">
+        <div id="results">
+          <h1 id="sorting-hat-greeting"></h1>
+          <h1 id="house-sort"></h1>
         </div>
-      </header>
-      <!-- Font Image With Text -->
-      <section>
-        <div id="home">
+        <div id="character-reveal">
           <img
-            src="./assets/images/harry-potter-logo.png"
-            alt="harry-potter-logo-text"
-            id="hp-logo"
+            class="character-portrait hidden"
+            id="char-harry"
+            src="./assets/images/harry-char.jpg"
+            alt="Harry Potter"
           />
-          <h2>Quiz</h2>
+          <img
+            class="character-portrait hidden"
+            id="char-hermione"
+            src="./assets/images/hermione-char.jpg"
+            alt="Hermione Granger"
+          />
+          <img
+            class="character-portrait hidden"
+            id="char-dumbledore"
+            src="./assets/images/dumbledore-char.jpg"
+            alt="Albus Dumbledore"
+          />
+          <img
+            class="character-portrait hidden"
+            id="char-draco"
+            src="./assets/images/draco-char.jpg"
+            alt="Draco Malfoy"
+          />
+          <h2 id="character-name" class="character-name-label"></h2>
         </div>
-      </section>
-      <!--  Start & Instruction Buttons  -->
-      <section>
-        <div id="start">
-          <a href="game.html" class="btn3" aria-label="start-button">
-            "I solemnly swear that i am up to no good"
-          </a>
-        </div>
-        <div id="instruct-tab">
-          <button
-            id="instruct"
-            class="btn2"
-            onclick="openNav()"
-            aria-label="instructions-button"
+        <div id="play-again-area">
+          <a
+            class="btn"
+            id="play-again"
+            href="game.html"
+            aria-label="play-again-button"
+            >Play Again</a
           >
-            Instructions
-          </button>
         </div>
-      </section>
-      <!-- Instructions Tab -->
-      <section>
-        <div id="myModal" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <h1 class="wands">Wands At The Ready</h1>
-            <br />
-            <ul>
-              <li>To Start Please Pledge</li>
-              <li>"I solemnly swear that I am up to no good"</li>
-              <li>First Question Will Appear</li>
-              <li>You will have 4 multiple choice answers</li>
-              <li>Click The Answer You Think is correct</li>
-              <li>
-                Once Completed All 5 Questions, You Will Be Sorted Into Your
-                House
-              </li>
-              <li>You Don’t Want To be in Slytherin House</li>
-            </ul>
-          </div>
+      </div>
+    </section>
+    <!-- Instructions Tab -->
+    <section>
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h1 class="wands">Wands At The Ready</h1>
+          <br />
+          <ul>
+            <li>To Start Please Pledge</li>
+            <li>"I solemnly swear that I am up to no good"</li>
+            <li>First Question Will Appear</li>
+            <li>You will have 4 multiple choice answers</li>
+            <li>Click The Answer You Think is correct</li>
+            <li>
+              Once Completed All 5 Questions, You Will Discover Which Character
+              You Are
+            </li>
+            <li>Aim for a perfect score</li>
+          </ul>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+    <!-- Made by Umang -->
+    <footer class="credit-footer">
+      <p>Made by Umang</p>
+    </footer>
     <!-- Script Sheet -->
-    <script src="assets/js/index.js"></script>
+    <script src="./assets/js/end.js"></script>
   </body>
 </html>
